@@ -1,0 +1,10 @@
+{
+  "name": "cpf-senha-validator",
+  "version": "1.0.0",
+  "description": "Validador simples de CPF e senha com testes automáticos e Jenkinsfile",
+  "main": "src/validator.js",
+  "scripts": {
+    "test": "node tests/test.js"
+  },
+  "license": "MIT"
+}
