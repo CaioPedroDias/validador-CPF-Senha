@@ -1,136 +1,31 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
   <title>Validador CPF / Senha — Demo</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   
+  
   <style>
-  body {
-  font-family: "Poppins", Arial, sans-serif;
-  background: linear-gradient(135deg, #ff3cac, #784ba0, #2b86c5);
-  background-size: 200% 200%;
-  animation: gradientMove 8s ease infinite;
-  margin: 0;
-  padding: 50px 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #fff;
-}
-
-@keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-h1 {
-  margin-bottom: 35px;
-  text-shadow: 0 3px 10px rgba(0,0,0,0.3);
-  font-size: 28px;
-  letter-spacing: 1px;
-}
-
-/* ===== BOXES ===== */
-.box {
-  background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(12px);
-  padding: 25px 30px;
-  border-radius: 18px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-  width: 340px;
-  margin-bottom: 30px;
-  border: 1px solid rgba(255,255,255,0.25);
-}
-
-.box h3 {
-  margin-top: 0;
-  font-size: 20px;
-  font-weight: 600;
-}
-
-/* ===== INPUTS ===== */
-input {
-  width: 100%;
-  padding: 12px;
-  margin: 12px 0;
-  border-radius: 10px;
-  border: none;
-  font-size: 15px;
-  outline: none;
-  background: rgba(255,255,255,0.2);
-  color: #fff;
-  transition: 0.25s;
-}
-
-input::placeholder {
-  color: #eeeeeeaa;
-}
-
-input:focus {
-  background: rgba(255,255,255,0.28);
-  box-shadow: 0 0 8px #00eaff;
-}
-
-/* ===== BOTÕES ===== */
-button {
-  width: 100%;
-  padding: 12px;
-  background: linear-gradient(135deg, #00eaff, #0078ff);
-  border: none;
-  border-radius: 10px;
-  color: #fff;
-  font-size: 15px;
-  cursor: pointer;
-  transition: 0.3s;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-}
-
-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 12px rgba(0,0,0,0.25);
-}
-
-/* ===== RESULTADOS ===== */
-p {
-  margin-top: 10px;
-  min-height: 24px;
-  font-size: 14px;
-}
-
-p.ok {
-  color: #00ff9d;
-  font-weight: bold;
-}
-
-p.error {
-  color: #ff6b6b;
-  font-weight: bold;
-}
-</style>
+/* style precisa ser dentro do html se fazer arquivo separado vai dar mais trabalho. Confia */
+  </style>
 
 </head>
 <body>
-  <h1>Validador CPF / Senha — Demo</h1>
+    <div class="container">
+        <h1>Validador de CPF e Senha</h1>
 
-  <div class="box">
-    <h3>Insira o CPF</h3>
-    <input id="cpf" placeholder="Digite CPF (ex: 529.982.247-25)" />
-    <button id="btnCpf">Validar CPF</button>
-    <p id="cpfResult"><small>Resultado aparecerá aqui</small></p>
-  </div>
+        <h3>CPF</h3>
+        <input type="text" id="cpf" placeholder="Digite o CPF">
+        <button onclick="validarCPF_UI()">Validar CPF</button>
+        <p id="resCpf"></p>
 
-  <div class="box">
-    <h3>Insira a Senha</h3>
-    <input id="senha" placeholder="Senha (min 8, 1 maiúsc., 1 minúsc., 1 número)" />
-    <button id="btnSenha">Validar Senha</button>
-    <p id="senhaResult"><small>Resultado aparecerá aqui</small></p>
-  </div>
+        <h3>Senha</h3>
+        <input type="password" id="senha" placeholder="Digite a Senha">
+        <button onclick="validarSenha_UI()">Validar Senha</button>
+        <p id="resSenha"></p>
+    </div>
 
-  <script>
-    /* msm coisa do css la de cima, juntin vai ser mais facil */
-  </script>
+    <script src="script.js"></script>
 </body>
 </html>
