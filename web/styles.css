@@ -1,31 +1,129 @@
+/* ---------- Estilo geral ---------- */
+:root{
+  --bg: #121212;
+  --card: #1e1e1e;
+  --muted: #bdbdbd;
+  --accent: #00d084; /* verde agradável */
+  --danger: #ff5c6c;
+  --glass: rgba(255,255,255,0.03);
+}
+
+* { box-sizing: border-box; }
+
 body {
-    font-family: Arial, sans-serif;
-    background: #121212;
-    color: white;
+    font-family: "Inter", Arial, sans-serif;
+    background: linear-gradient(180deg, var(--bg), #0f0f0f 60%);
+    color: #eaeaea;
     display: flex;
     justify-content: center;
-    padding-top: 80px;
+    padding-top: 60px;
+    margin: 0;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .container {
-    background: #1e1e1e;
-    padding: 20px 30px;
-    border-radius: 10px;
-    width: 300px;
+    background: linear-gradient(180deg, var(--card), #171717);
+    padding: 22px 28px;
+    border-radius: 12px;
+    width: 340px;
     text-align: center;
+    box-shadow: 0 6px 22px rgba(0,0,0,0.6), 0 1px 0 var(--glass) inset;
+    border: 1px solid rgba(255,255,255,0.03);
 }
 
+/* Cabeçalhos */
+.container h1 {
+    margin: 0 0 12px;
+    font-size: 20px;
+    letter-spacing: 0.2px;
+}
+.container h3 {
+    margin: 14px 0 6px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #f3f3f3;
+}
+
+/* Inputs */
 input {
     width: 100%;
-    padding: 8px;
-    margin: 10px 0;
+    padding: 10px 12px;
+    margin: 8px 0 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.06);
+    background: rgba(255,255,255,0.02);
+    color: #eaeaea;
+    outline: none;
+    font-size: 14px;
+    transition: box-shadow .15s ease, border-color .15s ease, background .15s ease;
 }
 
+/* Placeholder menos brilhante */
+input::placeholder {
+    color: #9a9a9a;
+}
+
+/* Foco no input */
+input:focus {
+    box-shadow: 0 6px 18px rgba(0,0,0,0.6), 0 0 0 4px rgba(0,208,132,0.06);
+    border-color: rgba(0,208,132,0.6);
+    background: rgba(255,255,255,0.025);
+}
+
+/* Regras da senha (texto explicativo) */
+.regras-senha {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 6px 0 10px;
+    line-height: 1.35;
+    text-align: left;
+    background: rgba(255,255,255,0.01);
+    padding: 8px 10px;
+    border-radius: 8px;
+}
+
+/* Botões */
 button {
-    padding: 8px 15px;
+    padding: 9px 16px;
     cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    background: linear-gradient(180deg,#00d084,#00b96b);
+    color: #02210f;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+    transition: transform .08s ease, opacity .12s ease, box-shadow .12s ease;
+    width: 100%;
+    margin-top: 6px;
 }
 
-#resultado {
+button:hover { transform: translateY(-2px); }
+button:active { transform: translateY(0); opacity: 0.95; }
+
+/* Resultado das validações */
+#resCpf, #resSenha {
     margin-top: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    min-height: 20px;
+    transition: color .12s ease, transform .12s ease;
+}
+
+/* Classes de estado (use no JS: .ok ou .error) */
+.ok {
+    color: var(--accent);
+    text-shadow: 0 1px 0 rgba(0,0,0,0.6);
+}
+
+.error {
+    color: var(--danger);
+    text-shadow: 0 1px 0 rgba(0,0,0,0.6);
+}
+
+/* Pequeno ajuste visual para telas muito pequenas */
+@media (max-width: 360px) {
+    .container { width: 92%; padding: 18px; }
+    button { padding: 10px; }
 }

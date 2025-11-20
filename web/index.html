@@ -7,20 +7,28 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Validador de CPF e Senha</h1>
+  <div class="container">
+    <h1>Validador de CPF e Senha</h1>
 
-        <h3>CPF</h3>
+      <h3>CPF</h3>
         <input type="text" id="cpf" placeholder="Digite o CPF">
         <button onclick="validarCPF_UI()">Validar CPF</button>
         <p id="resCpf"></p>
 
-        <h3>Senha</h3>
+      <h3>Senha</h3>
         <input type="password" id="senha" placeholder="Digite a Senha">
+        <p class="regras-senha">
+          A senha forte deve conter:
+          <br>• Pelo menos <strong>8 caracteres</strong>
+          <br>• Pelo menos <strong>1 letra minúscula</strong> (a–z)
+          <br>• Pelo menos <strong>1 letra maiúscula</strong> (A–Z)
+          <br>• Pelo menos <strong>1 número</strong> (0–9)
+          <br>• Pelo menos <strong>1 caractere especial</strong> (@ $ ! % * ? &)
+        </p>
         <button onclick="validarSenha_UI()">Validar Senha</button>
         <p id="resSenha"></p>
-    </div>
+  </div>
 
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
