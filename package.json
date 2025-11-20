@@ -4,7 +4,7 @@
   "description": "Validador simples de CPF e senha com testes automáticos e Jenkinsfile",
   "main": "src/validator.js",
   "scripts": {
-    "test": "node tests/test.js"
+    "test": "node tests/tests.js"
   },
   "license": "MIT"
 }
