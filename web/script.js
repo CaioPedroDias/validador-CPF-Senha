@@ -1,3 +1,13 @@
+// Função auxiliar para aplicar classe de resultado
+function setResult(id, text, ok) {
+    const el = document.getElementById(id);
+    el.textContent = text;
+    el.classList.remove("ok", "error");
+    el.classList.add(ok ? "ok" : "error");
+}
+
+/* -------------------- Validação CPF -------------------- */
+
 function validarCPF_Mat(cpf) {
     cpf = cpf.replace(/\D+/g, '');
 
@@ -9,7 +19,7 @@ function validarCPF_Mat(cpf) {
     let resto;
 
     // 1º dígito
-    for (let i = 1; i <= 9; i++){
+    for (let i = 1; i <= 9; i++) {
         soma += parseInt(cpf.substring(i - 1, i)) * (11 - i);
     }
 
@@ -20,7 +30,7 @@ function validarCPF_Mat(cpf) {
 
     // 2º dígito
     soma = 0;
-    for (let i = 1; i <= 10; i++){
+    for (let i = 1; i <= 10; i++) {
         soma += parseInt(cpf.substring(i - 1, i)) * (12 - i);
     }
 
@@ -32,42 +42,38 @@ function validarCPF_Mat(cpf) {
     return true;
 }
 
+/* -------------------- Validação Senha -------------------- */
+
 function validarSenha_Regra(senha) {
     const regex =
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     return regex.test(senha);
 }
 
-// Interface UI CPF
+/* -------------------- UI CPF -------------------- */
+
 function validarCPF_UI() {
     const cpfInput = document.getElementById("cpf");
-    const resultado = document.getElementById("resCpf");
 
     if (cpfInput.value.trim() === "") {
-        resultado.innerText = "Digite um CPF.";
-        resultado.style.color = "red";
+        setResult("resCpf", "Digite um CPF.", false);
         return;
     }
 
     const isValido = validarCPF_Mat(cpfInput.value);
-
-    resultado.innerText = isValido ? "CPF Válido" : "CPF Inválido";
-    resultado.style.color = isValido ? "green" : "red";
+    setResult("resCpf", isValido ? "CPF Válido" : "CPF Inválido", isValido);
 }
 
-// Interface UI Senha
+/* -------------------- UI Senha -------------------- */
+
 function validarSenha_UI() {
     const senhaInput = document.getElementById("senha");
-    const resultado = document.getElementById("resSenha");
 
     if (senhaInput.value.trim() === "") {
-        resultado.innerText = "Digite uma senha.";
-        resultado.style.color = "red";
+        setResult("resSenha", "Digite uma senha.", false);
         return;
     }
 
     const isForte = validarSenha_Regra(senhaInput.value);
-
-    resultado.innerText = isForte ? "Senha forte" : "Senha fraca";
-    resultado.style.color = isForte ? "green" : "red";
+    setResult("resSenha", isForte ? "Senha forte" : "Senha fraca", isForte);
 }
