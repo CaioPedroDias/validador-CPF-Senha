@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="2" failures="0">
+  <testsuite name="ValidadorSuite" tests="2" failures="0">
+    <testcase classname="validador" name="CPF Suite" />
+    <testcase classname="validador" name="Senha Suite" />
+  </testsuite>
+</testsuites>

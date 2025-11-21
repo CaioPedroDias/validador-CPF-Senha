@@ -1,0 +1,5 @@
+Total suites: 2
+Failures: 0
+
+CPF Suite: OK
+Senha Suite: OK
