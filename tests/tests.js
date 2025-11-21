@@ -1,4 +1,3 @@
-// tests.js
 // Runner de testes que gera:
 //  - test-results/result.txt  (resumo legível)
 //  - test-results/junit.xml   (JUnit XML para Jenkins)
@@ -27,7 +26,7 @@ function escapeXml(s = '') {
     .replace(/>/g, '&gt;');
 }
 
-/* -------------------- Funções a testar (mesma lógica do script.js) -------------------- */
+// Funções a testar (mesma lógica do script.js)
 
 function validarCPF_Mat(cpf) {
     cpf = String(cpf).replace(/\D+/g, '');
@@ -69,7 +68,7 @@ function validarSenha_Regra(senha) {
     return regex.test(String(senha));
 }
 
-/* -------------------- Casos de teste  -------------------- */
+// Casos de teste
 
 const suites = [
   {
@@ -108,7 +107,7 @@ const suites = [
   }
 ];
 
-/* -------------------- Runner e geração JUnit -------------------- */
+// Runner e geração JUnit
 
 (async () => {
   const results = [];
